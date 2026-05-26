@@ -64,10 +64,13 @@ export let model = {
 
     finalPercentage() {
         let exerciseAvg = this.exerciseAverage();
-        return exerciseAvg * 0.6 + this.exam * 0.4;
+        return ((exerciseAvg * 0.6) + (this.exam * 0.4));
     },
 
     finalGrade() {
+        if (this.attendance <= 80) {
+            return "Nicht Genügend"
+        }
         let percent = this.finalPercentage();
 
         if (percent <= 50) return "Nicht Genügend";

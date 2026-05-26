@@ -54,10 +54,24 @@ export const controller = {
                     view.highlightNegative(input);
                 }
 
+
+
                 if (index === worstIndex) {
                     view.highlightStriked(input);
                 }
-            })
+            });
+
+            let attendanceInput = document.querySelector(".attendance");
+            view.clearHighlight(attendanceInput);
+            if (model.attendance <= 80) {
+                view.highlightNegative(attendanceInput);
+            }
+
+            let examInput = document.querySelector(".exam");
+            view.clearHighlight(examInput);
+            if (model.exam < 50) {
+                view.highlightNegative(examInput);
+            }
         },
 
 
